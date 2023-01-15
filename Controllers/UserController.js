@@ -2,7 +2,6 @@ const User = require("../Models/User");
 class UserController {
     async getAllUsers(req, res) {
         const users = await User.findAndCountAll();
-        console.log(users);
         res.send({
             data: users.rows,
             total: users.count
@@ -16,8 +15,6 @@ class UserController {
                     data: user
                 });
             } else {
-
-
                 res.sendStatus(404);
             }
         });
@@ -51,7 +48,7 @@ class UserController {
     async deleteUser(req, res) {
         const id = req.params.id;
         await User.findByPk(id).then((user) => {
-            if (user != null) {
+            if (user) {
                 user.destroy();
                 res.sendStatus(200);
             } else {
