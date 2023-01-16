@@ -14,6 +14,8 @@ const userValidator = () => {
             }
 
         }),
+        body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long').isStrongPassword().withMessage('Password must be strong'),
+
     ]
 }
 

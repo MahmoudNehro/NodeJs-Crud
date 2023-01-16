@@ -30,7 +30,7 @@ class AuthController {
             const passwordToString = request.body.password.toString();
             bcrypt.compare(passwordToString, user.password, function (err, result) {
                 if (result) {
-                    let token = jwt.sign({ "id": user.id, "email": user.email, "first_name": user.first_name }, process.env.SECRET, { expiresIn: "1h" });
+                    let token = jwt.sign({ "id": user.id, "email": user.email, "is_admin": user.is_admin }, process.env.SECRET, { expiresIn: "1h" });
                     response.send({
                         data: { access_token: token },
                         message: 'user created successfully'

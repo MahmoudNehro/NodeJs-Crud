@@ -1,0 +1,583 @@
+{
+	"info": {
+		"_postman_id": "efee4ce8-4937-4fc8-97aa-89b5205ae16d",
+		"name": "NodeJs Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25232017"
+	},
+	"item": [
+		{
+			"name": "Crud",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAzMDEyLCJleHAiOjE2NzM5MDY2MTJ9.lKt1wivFWXjvFpe1rE29J6akMSwLPhrBG8L-Rk8GCWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1-pAeRba/3vgVEhnSPGEvagSGTmfE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jan 2023 21:04:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"admin\",\n            \"email\": \"admin@admin.com\",\n            \"is_admin\": true\n        },\n        {\n            \"id\": 4,\n            \"name\": \"mahmoud\",\n            \"email\": \"mohamed@gmail.com\",\n            \"is_admin\": false\n        }\n    ],\n    \"message\": \"total users are 2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYWhtb2RkdWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NzM5MDI2MjYsImV4cCI6MTY3MzkwNjIyNn0.evCiwroAw5WD8lj5xRclwDz3bctOBoRuCNBdVkVBFy4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Mahmoud\",\r\n    \"email\" : \"mahmoddud@gmail.com\",\r\n    \"password\" : \"123456aA$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Mahmoud\",\r\n    \"email\" : \"mahmoddud@gmail.com\",\r\n    \"password\" : \"123456aA$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-zGwzBeXwsBqJbNEj0LVqro4hY/o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jan 2023 20:51:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"Mahmoud\",\n        \"email\": \"mahmoddud@gmail.com\"\n    },\n    \"message\": \"user created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAyNzQ3LCJleHAiOjE2NzM5MDYzNDd9.ClYkjaNbff9DFnAPF56cxcxZW1Zqr5i-SXRFAYxVJyU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"adminadmin\",\r\n    \"email\" : \"msr@gmail.com\",\r\n    \"password\" : \"123456789Aa#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAyOTkyLCJleHAiOjE2NzM5MDY1OTJ9.ErpJuNhMjKvxqHj9COkGLM9ObLbWcbBYvrAKOFMJsRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYWhtb2RkdWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NzM5MDI0MDMsImV4cCI6MTY3MzkwNjAwM30.zXaoQaG4aVfARGNjaDd-LEdd9QJOW5xtPBr8l7QwJU4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get One User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/users/2",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "117"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"75-nOc9vT1TxsJAKOYl+QF7hJ1iy28\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jan 2023 20:58:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Mahmoud\",\n        \"email\": \"mahmoddud@gmail.com\",\n        \"is_admin\": false\n    },\n    \"message\": \"user found successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"mahmoud\",\r\n    \"email\" : \"gehad@gmail.com\",\r\n    \"password\" : \"12345678Aa$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"mahmoud\",\r\n    \"email\" : \"mohamed@gmail.com\",\r\n    \"password\" : \"12345678Aa$\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-qWt/M73ebnnFYhRWu+7QqKASE1A\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jan 2023 21:04:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"mahmoud\",\n        \"email\": \"mohamed@gmail.com\"\n    },\n    \"message\": \"user registered successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"mahmoddud@gmail.com\",\r\n    \"password\" : \"123456aA$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"admin@admin.com\",\r\n    \"password\" : \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-yN5raDsUtNVbJkGCsr2lazhyQSQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jan 2023 20:51:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAyMjYwLCJleHAiOjE2NzM5MDU4NjB9.FlcqXGxeiERfGuZtUOiqoY5TvIujsWoG2EIUizTKE5I\"\n    },\n    \"message\": \"user created successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}

@@ -1,10 +1,8 @@
 const User = require("../Models/User");
+const bcrypt = require('bcrypt');
+
 class UserController {
     async getAllUsers(request, response) {
-        const authUser = request.user;
-        if (!authUser.is_admin) {
-            return response.sendStatus(401);
-        }
         const users = await User.findAndCountAll();
         response.send({
             data: users.rows,
@@ -13,10 +11,6 @@ class UserController {
     }
     async getUser(request, response) {
         const id = request.params.id;
-        const authUser = request.user;
-        if (authUser.id != id) {
-            return response.sendStatus(401);
-        }
         await User.findByPk(id).then((user) => {
             if (user) {
                 response.send({
@@ -24,40 +18,35 @@ class UserController {
                     message: 'user found successfully'
                 }).status(200);
             } else {
-                response.send({
+                response.status(404).send({
                     data: {},
                     message: 'user not found'
-                }).status(404);
+                });
             }
         });
     }
     async createUser(request, response) {
-        const authUser = request.user;
-        if (!authUser.is_admin) {
-            return response.sendStatus(401);
-        }
+        const salt = await bcrypt.genSalt(10);
+        const passwordToString = request.body.password.toString();
+
         const user = {
             name: request.body.name,
             email: request.body.email,
-            password: request.body.password
+            password: await bcrypt.hash(passwordToString, salt)
         };
         const data = {
             name: request.body.name,
             email: request.body.email,
         };
         await User.create(user).then(() => {
-            response.send({
+            response.status(201).send({
                 data: data,
                 message: 'user created successfully'
-            }).status(201);
+            });
         });
     }
     async updateUser(request, response) {
         const id = request.params.id;
-        const authUser = request.user;
-        if (authUser.id != id) {
-            return response.sendStatus(401);
-        }
         const data = {
             name: request.body.name,
             email: request.body.email,
@@ -65,25 +54,21 @@ class UserController {
         await User.findByPk(id).then((user) => {
             if (user != null) {
                 user.update(data).then(() => {
-                    response.send({
+                    response.status(204).send({
                         data: data,
                         message: 'user updated successfully'
-                    }).status(204);
+                    });
                 });
             } else {
-                response.send({
+                response.status(404).send({
                     data: {},
                     message: 'user not found'
-                }).status(404);
+                });
             }
         });
     }
     async deleteUser(request, response) {
         const id = request.params.id;
-        const authUser = request.user;
-        if (!authUser.is_admin) {
-            return response.sendStatus(401);
-        }
         await User.findByPk(id).then((user) => {
             if (user) {
                 user.destroy();
@@ -92,10 +77,10 @@ class UserController {
                     message: 'user deleted successfully'
                 }).status(204);
             } else {
-                response.send({
+                response.status(404).send({
                     data: {},
                     message: 'user not found'
-                }).status(404);
+                });
             }
         });
     }

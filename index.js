@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config();
+const bcrypt = require('bcrypt');
 const sequelize = require("./database/database");
 const express = require("express");
 const userRoutes = require("./Routers/user");
@@ -7,13 +8,16 @@ const User = require('./Models/User');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-sequelize.sync({ force: true }).then(async () => {
+sequelize.sync().then(async () => {
+    const salt = await bcrypt.genSalt(10);
+    const passwordToString = process.env.ADMIN_PASSWORD.toString();
+
     const [user, created] = await User.findOrCreate({
         where: { email: process.env.ADMIN_EMAIL },
         defaults: {
             name: process.env.ADMIN_NAME,
             email: process.env.ADMIN_EMAIL,
-            password: process.env.ADMIN_PASSWORD,
+            password: await bcrypt.hash(passwordToString, salt),
             is_admin: true
         }
     });
