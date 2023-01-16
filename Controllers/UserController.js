@@ -1,58 +1,75 @@
 const User = require("../Models/User");
 class UserController {
-    async getAllUsers(req, res) {
+    async getAllUsers(requestuest, response) {
         const users = await User.findAndCountAll();
-        res.send({
+        response.send({
             data: users.rows,
-            total: users.count
-        });
+            message: `total users are ${users.count}`
+        }).status(200);
     }
-    async getUser(req, res) {
-        const id = req.params.id;
+    async getUser(request, response) {
+        const id = request.params.id;
         await User.findByPk(id).then((user) => {
             if (user) {
-                res.send({
-                    data: user
-                });
+                response.send({
+                    data: user,
+                    message: 'user found successfully'
+                }).status(200);
             } else {
-                res.sendStatus(404);
+                response.send({
+                    data: {},
+                    message: 'user not found'
+                }).status(404);
             }
         });
     }
-    async createUser(req, res) {
-        console.log(req.body);
+    async createUser(request, response) {
         const user = {
-            name: req.body.name,
-            email: req.body.email
+            name: request.body.name,
+            email: request.body.email
         };
         await User.create(user).then(() => {
-            res.sendStatus(201);
+            response.send({
+                data: user,
+                message: 'user created successfully'
+            }).status(201);
         });
     }
-    async updateUser(req, res) {
-        const id = req.params.id;
+    async updateUser(request, response) {
+        const id = request.params.id;
         await User.findByPk(id).then((user) => {
-            console.log(user, req.body);
             if (user != null) {
                 user.update({
-                    name: req.body.name,
-                    email: req.body.email
+                    name: request.body.name,
+                    email: request.body.email
                 }).then(() => {
-                    res.sendStatus(204);
+                    response.send({
+                        data: user,
+                        message: 'user updated successfully'
+                    }).status(204);
                 });
             } else {
-                res.sendStatus(404);
+                response.send({
+                    data: {},
+                    message: 'user not found'
+                }).status(404);
             }
         });
     }
-    async deleteUser(req, res) {
-        const id = req.params.id;
+    async deleteUser(request, response) {
+        const id = request.params.id;
         await User.findByPk(id).then((user) => {
             if (user) {
                 user.destroy();
-                res.sendStatus(200);
+                response.send({
+                    data: {},
+                    message: 'user deleted successfully'
+                }).status(204);
             } else {
-                res.sendStatus(404);
+                response.send({
+                    data: {},
+                    message: 'user not found'
+                }).status(404);
             }
         });
     }
