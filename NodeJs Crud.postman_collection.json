@@ -17,7 +17,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAzMDEyLCJleHAiOjE2NzM5MDY2MTJ9.lKt1wivFWXjvFpe1rE29J6akMSwLPhrBG8L-Rk8GCWc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTA0MDM4LCJleHAiOjE2NzM5MDc2Mzh9.qmkY81D8Pcxhi-9DcIE6SWLVZc64XwMg0zkiQbVM_rQ",
 									"type": "string"
 								}
 							]
@@ -108,7 +108,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYWhtb2RkdWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NzM5MDI2MjYsImV4cCI6MTY3MzkwNjIyNn0.evCiwroAw5WD8lj5xRclwDz3bctOBoRuCNBdVkVBFy4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnZWhhZEBnbWFpbC5jb20iLCJpc19hZG1pbiI6ZmFsc2UsImlhdCI6MTY3MzkwMzk3OSwiZXhwIjoxNjczOTA3NTc5fQ.1YU7ZvoQSPDdBlxFUWIzkVHPyTIytv7AoOgwOuY2iDI",
 									"type": "string"
 								}
 							]
@@ -217,7 +217,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAyNzQ3LCJleHAiOjE2NzM5MDYzNDd9.ClYkjaNbff9DFnAPF56cxcxZW1Zqr5i-SXRFAYxVJyU",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTA0Njc5LCJleHAiOjE2NzM5MDgyNzl9.h6Q-qDeD52y9WOTUQ2VZjwKL2q77178qybGF8bNxh30",
 									"type": "string"
 								}
 							]
@@ -254,7 +254,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjczOTAyOTkyLCJleHAiOjE2NzM5MDY1OTJ9.ErpJuNhMjKvxqHj9COkGLM9ObLbWcbBYvrAKOFMJsRA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnZWhhZEBnbWFpbC5jb20iLCJpc19hZG1pbiI6ZmFsc2UsImlhdCI6MTY3MzkwMzk3OSwiZXhwIjoxNjczOTA3NTc5fQ.1YU7ZvoQSPDdBlxFUWIzkVHPyTIytv7AoOgwOuY2iDI",
 									"type": "string"
 								}
 							]
@@ -262,13 +262,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/users/1",
+							"raw": "{{BASE_URL}}/users/3",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -282,7 +282,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYWhtb2RkdWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NzM5MDI0MDMsImV4cCI6MTY3MzkwNjAwM30.zXaoQaG4aVfARGNjaDd-LEdd9QJOW5xtPBr8l7QwJU4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJnZWhhZEBnbWFpbC5jb20iLCJpc19hZG1pbiI6ZmFsc2UsImlhdCI6MTY3MzkwMzk3OSwiZXhwIjoxNjczOTA3NTc5fQ.1YU7ZvoQSPDdBlxFUWIzkVHPyTIytv7AoOgwOuY2iDI",
 									"type": "string"
 								}
 							]
@@ -290,13 +290,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/users/1",
+							"raw": "{{BASE_URL}}/users/5",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -373,7 +373,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"mahmoud\",\r\n    \"email\" : \"gehad@gmail.com\",\r\n    \"password\" : \"12345678Aa$\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"mahmoud\",\r\n    \"email\" : \"ahmed@gmail.com\",\r\n    \"password\" : \"12345678Aa$\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -468,7 +468,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"mahmoddud@gmail.com\",\r\n    \"password\" : \"123456aA$\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"admin@admin.com\",\r\n    \"password\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
