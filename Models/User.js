@@ -23,12 +23,36 @@ User.init(
                 isEmail: true
             }
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+
+        },
+        is_admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        }
     },
     {
         sequelize,
         modelName: "users",
+        defaultScope: {
+            attributes: {
+                exclude: ['password']
+            },
+            order: [['id', 'ASC']]
+        },
+        scopes: {
+            withPassword: {
+                attributes: {
+                    include: ['password']
+                }
+            }
+        },
         timestamps: false
     }
+
 );
 
 module.exports = User;

@@ -10,9 +10,11 @@
   "author": "mahmoud nehro",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
+    "jsonwebtoken": "^9.0.0",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.1.4"
   },

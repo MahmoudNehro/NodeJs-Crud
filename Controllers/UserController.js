@@ -1,6 +1,10 @@
 const User = require("../Models/User");
 class UserController {
-    async getAllUsers(requestuest, response) {
+    async getAllUsers(request, response) {
+        const authUser = request.user;
+        if (!authUser.is_admin) {
+            return response.sendStatus(401);
+        }
         const users = await User.findAndCountAll();
         response.send({
             data: users.rows,
@@ -9,6 +13,10 @@ class UserController {
     }
     async getUser(request, response) {
         const id = request.params.id;
+        const authUser = request.user;
+        if (authUser.id != id) {
+            return response.sendStatus(401);
+        }
         await User.findByPk(id).then((user) => {
             if (user) {
                 response.send({
@@ -24,27 +32,41 @@ class UserController {
         });
     }
     async createUser(request, response) {
+        const authUser = request.user;
+        if (!authUser.is_admin) {
+            return response.sendStatus(401);
+        }
         const user = {
             name: request.body.name,
-            email: request.body.email
+            email: request.body.email,
+            password: request.body.password
+        };
+        const data = {
+            name: request.body.name,
+            email: request.body.email,
         };
         await User.create(user).then(() => {
             response.send({
-                data: user,
+                data: data,
                 message: 'user created successfully'
             }).status(201);
         });
     }
     async updateUser(request, response) {
         const id = request.params.id;
+        const authUser = request.user;
+        if (authUser.id != id) {
+            return response.sendStatus(401);
+        }
+        const data = {
+            name: request.body.name,
+            email: request.body.email,
+        };
         await User.findByPk(id).then((user) => {
             if (user != null) {
-                user.update({
-                    name: request.body.name,
-                    email: request.body.email
-                }).then(() => {
+                user.update(data).then(() => {
                     response.send({
-                        data: user,
+                        data: data,
                         message: 'user updated successfully'
                     }).status(204);
                 });
@@ -58,6 +80,10 @@ class UserController {
     }
     async deleteUser(request, response) {
         const id = request.params.id;
+        const authUser = request.user;
+        if (!authUser.is_admin) {
+            return response.sendStatus(401);
+        }
         await User.findByPk(id).then((user) => {
             if (user) {
                 user.destroy();
